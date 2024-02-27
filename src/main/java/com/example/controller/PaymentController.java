@@ -15,10 +15,6 @@ public class PaymentController {
         this.paymentService = paymentService;
     }
 
-    @GetMapping("/success")
-    public String success(){
-        return "success";
-    }
     //결제
     @PostMapping("/payment")
     public ResponseEntity<String> create(@RequestHeader("x-username") String userId, @Valid @RequestBody PaymentRequestDTO payment){

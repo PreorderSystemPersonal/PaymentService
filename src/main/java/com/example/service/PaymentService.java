@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class PaymentService {
 
     private final PaymentRepository paymentRepository;
-    private final StockClient stockClient;
     private final OrderClient orderClient;
 
     @Transactional
@@ -31,7 +30,6 @@ public class PaymentService {
         if(0.2 < probability){
             return "success";
         }else{
-            //어떻게 짜야하나?
             //결제 실패 했을 때 주문 삭제 요청
             orderClient.cancel(orderId);
             //db에서도 삭제
